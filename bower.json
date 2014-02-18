@@ -8,7 +8,6 @@
 		"angular": "~1.2",
     "angular-route": "~1.2",
 		"respond": "~1.4",
-		"sjcl": "~1.0",
 		"html5shiv": "~3.6"
 	}
 }
