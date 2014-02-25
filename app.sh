@@ -5,6 +5,8 @@ kill_child_processes() {
 	kill $SERVER_PID
 	echo "KILLING $MSC_LOOP_PID"
 	kill $MSC_LOOP_PID
+	echo "KILLING $BTC_LOOP_PID"
+	kill $BTC_LOOP_PID
 }
 
 # Ctrl-C trap. Catches INT signal
@@ -14,9 +16,15 @@ APPDIR=`pwd`
 TOOLSDIR=$APPDIR/node_modules/mastercoin-tools
 DATADIR="/var/lib/omniwallet"
 
+# Mastercoin Parsing Loop
 $APPDIR/bin/parse-msc.sh &
 MSC_LOOP_PID=$!
 echo "MSC Parse Loop PID: $MSC_LOOP_PID"
+
+# Bitcoin Parsing Loop
+$APPDIR/bin/parse-btc.sh &
+BTC_LOOP_PID=$!
+echo "MSC Parse Loop PID: $BTC_LOOP_PID"
 
 # Export directories for API scripts to use
 export TOOLSDIR

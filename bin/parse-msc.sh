@@ -1,9 +1,8 @@
 #!/bin/bash
 
-echo "SPAWNED SUBPROCESS!"
+echo "Spawned MSC Parsing Loop!"
 
 remove_lock() {
-	echo "SUBPROCESS TRAP!"
 	rm -f $LOCK_FILE
 }
 
